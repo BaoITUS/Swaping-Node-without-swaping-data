@@ -1,0 +1,25 @@
+//change pointers in front of i, behind j, the list head and tail
+if (i != list.head)
+i->prev->next = j;
+else
+list.head = j;
+if (j != list.tail)
+j->next->prev = i;
+else
+list.tail = i;
+//swap i and j
+if (i->next == j) {
+	i->next = j->next;
+	j->prev = i->prev;
+	i->prev = j;
+	j->next = i;
+}
+else {
+	task* temp = i;
+	i->prev = j->prev;
+	j->prev = temp->prev;
+	j->prev->next = i;
+	i->next->prev = j;
+}
+//update the correct i and j in the loop
+swap(i, j);
